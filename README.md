@@ -2,7 +2,8 @@ A stream that stops early is not a rare case. A proxy times out, a producer dies
 presses stop. The interesting part is not that the tail is lost — it is that the call which
 was supposed to report the run often returns exactly what it returns for a run that
 finished, so the transcript the user watched and the transcript the application saved
-diverge with nothing raised anywhere.
+diverge while the call that was supposed to report on it says nothing is wrong. A subscriber
+watching lifecycle events can often still tell; the awaited call frequently cannot.
 
 I work on that layer: interruption, conformance and what a consumer is left holding.
 
